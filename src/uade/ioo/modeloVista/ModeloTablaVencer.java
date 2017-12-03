@@ -10,11 +10,11 @@ public class ModeloTablaVencer extends AbstractTableModel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private AdministradorPagos modelo;
-	
-	public ModeloTablaVencer(AdministradorPagos modelo){
+
+	public ModeloTablaVencer(AdministradorPagos modelo) {
 		this.modelo = modelo;
 	}
-	
+
 	@Override
 	public int getColumnCount() {
 		return 3;
@@ -27,17 +27,22 @@ public class ModeloTablaVencer extends AbstractTableModel {
 
 	@Override
 	public Object getValueAt(int fila, int col) {
-		for (int i = 0; i < modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).size(); i++) {
-			if (fila == i) {
-				if (col == 0) {
-					return modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).get(i).getNumero();
-				}
-				if (col == 1) {
-					return modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).get(i).getMonto();
-				}
-				if (col == 2){
-					
-					return modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).get(i).getFechaVencimiento(modelo.getCheques().get(i).getFechaEmision());
+		if (modelo.calcularProxVencer(modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).get(fila).getFechaEmision())) {
+			for (int i = 0; i < modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).size(); i++) {
+				if (fila == i) {
+					if (col == 0) {
+						return modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).get(i)
+								.getNumero();
+					}
+					if (col == 1) {
+						return modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).get(i)
+								.getMonto();
+					}
+					if (col == 2) {
+
+						return modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()).get(i)
+								.getFechaVencimiento(modelo.getCheques().get(i).getFechaEmision());
+					}
 				}
 
 			}

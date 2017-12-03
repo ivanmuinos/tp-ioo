@@ -20,6 +20,6 @@ public class Chequera {
 	public int ultimoNumero() {
 		return this.listChequePropio.get(this.listChequePropio.size()).getNumero();
 	}
-	
+
 	
 }

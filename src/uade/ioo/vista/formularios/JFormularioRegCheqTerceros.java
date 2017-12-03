@@ -37,6 +37,7 @@ public class JFormularioRegCheqTerceros extends JFormularioBase implements IVist
 
 	public JFormularioRegCheqTerceros(AdministradorPagos modelo) {
 		super(modelo);
+		this.setTitle("Registrar Cheques de terceros");
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		
 		Date date = new Date();

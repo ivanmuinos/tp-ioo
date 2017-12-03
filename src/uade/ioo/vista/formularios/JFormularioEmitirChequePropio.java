@@ -1,6 +1,10 @@
 package uade.ioo.vista.formularios;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,8 +30,15 @@ public class JFormularioEmitirChequePropio extends JFormularioBase implements IV
 
 	public JFormularioEmitirChequePropio(AdministradorPagos modelo, double faltante) {
 		super(modelo);
+		this.setTitle("Emision de cheques propios");
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
+		
+		Date date = new Date();
+		DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		this.txtFechaEmision.setText(format.format(date));
+	
 		this.faltante = faltante;
+		
 		this.getContentPane().add(new JLabel("Numero: "));
 		this.getContentPane().add(txtNumero);
 		this.getContentPane().add(new JLabel("Monto: "));

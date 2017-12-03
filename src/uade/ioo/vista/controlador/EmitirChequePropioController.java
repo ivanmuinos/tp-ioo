@@ -3,6 +3,8 @@ package uade.ioo.vista.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import uade.ioo.comportamiento.IVistaRecibirCheque;
 import uade.ioo.modelo.AdministradorPagos;
 import uade.ioo.modelo.ChequePropio;
@@ -22,7 +24,8 @@ public class EmitirChequePropioController implements ActionListener {
 		ChequePropio c = new ChequePropio(this.vista.getNumero(), this.vista.getMonto(), this.vista.getFechaEmision());
 		
 		this.modelo.registrarChequePropio(c);
-		
+		this.modelo.registrarPagosHechos(c);
+		JOptionPane.showMessageDialog(null, "Pago con cheque efectuado =D");
 		System.out.println(modelo.obtenerChequesTerceros(modelo.getCheques(), modelo.getChequera()));
 	}
 	

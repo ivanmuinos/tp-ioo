@@ -103,7 +103,7 @@ public class JFormularioPrincipal extends JFormularioBase {
 		
 
 		cheques.add(registrarChequesTerceros);
-		cheques.add(chequesTercerosVencer);
+		reportes.add(chequesTercerosVencer);
 
 	
 

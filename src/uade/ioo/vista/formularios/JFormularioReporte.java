@@ -53,8 +53,9 @@ public class JFormularioReporte extends JFormularioBase{
 	public void actualizar() {
 		// TODO Auto-generated method stub
 		super.actualizar();
-		this.lblMontoDisponibleCheqTercero.setText(Double.toString(this.getModelo().getMontoDisponiblePagos()));
-		
+		this.lblMontoDisponibleCheqTercero.setText(Double.toString(this.getModelo().getMontoDisponibleChequeTerceros()));
+		this.lblMontoPagado.setText(Double.toString(this.getModelo().getPagosHechos()));
+		//this.lblMontoDepositadoBanco.setText(Double.toString(this.getModelo().getMontoDepositadoBanco()));
 	}
 
 }
